@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "dev": "vite client",
-    "server": "npx tsx server/src/index.ts"
+    "server": "npx tsx server/src/index.ts",
+    "build": "yarn workspace @clansapi/client build"
   },
   "workspaces": [
     "client",
