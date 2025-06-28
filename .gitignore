@@ -3,3 +3,4 @@ node_modules
 .yarnrc.yml
 yarn.lock
 dist
+server/config.json
