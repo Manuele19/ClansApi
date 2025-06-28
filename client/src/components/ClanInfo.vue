@@ -12,7 +12,7 @@
 
 import { Clan, Client } from 'clashofclans.js';
 import { onBeforeMount, ref } from 'vue';
-import config from '../../config.json';
+import config from '../../../server/config.json';
 
 const client = new Client({ keys: [config.apiKey]});
 const clan = ref<Clan>();

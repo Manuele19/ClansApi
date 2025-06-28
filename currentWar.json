@@ -1,5 +1,5 @@
 {
-  "state": "preparation",
+  "state": "inWar",
   "teamSize": 15,
   "attacksPerMember": 2,
   "preparationStartTime": "2025-06-26T12:32:49.000Z",
@@ -13,17 +13,35 @@
       "url": "https://api-assets.clashofclans.com/badges/512/3yI8_XeuD5YLQkdBF07gYcd-qzltGpeuEZgm9UL38a4.png"
     },
     "level": 9,
-    "stars": 0,
-    "attackCount": 0,
-    "destruction": 0,
+    "stars": 16,
+    "attackCount": 10,
+    "destruction": 40.333332,
     "members": [
       {
         "name": "Xardy",
         "tag": "#9U82U028",
         "mapPosition": 1,
         "townHallLevel": 15,
-        "attacks": [],
-        "defenseCount": 0
+        "attacks": [
+          {
+            "stars": 2,
+            "destruction": 68,
+            "order": 6,
+            "duration": 168,
+            "attackerTag": "#9U82U028",
+            "defenderTag": "#CGC9R0PY"
+          },
+          {
+            "stars": 2,
+            "destruction": 71,
+            "order": 7,
+            "duration": 75,
+            "attackerTag": "#9U82U028",
+            "defenderTag": "#QR0QRVVVP"
+          }
+        ],
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#CGC9R0PY"
       },
       {
         "name": "cri03",
@@ -31,7 +49,8 @@
         "mapPosition": 3,
         "townHallLevel": 14,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#Q22QUGJPU"
       },
       {
         "name": "nleemau",
@@ -54,8 +73,26 @@
         "tag": "#LV0Y8JY02",
         "mapPosition": 7,
         "townHallLevel": 12,
-        "attacks": [],
-        "defenseCount": 0
+        "attacks": [
+          {
+            "stars": 2,
+            "destruction": 80,
+            "order": 1,
+            "duration": 145,
+            "attackerTag": "#LV0Y8JY02",
+            "defenderTag": "#GYLLUL29U"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 9,
+            "duration": 83,
+            "attackerTag": "#LV0Y8JY02",
+            "defenderTag": "#G0PRVP992"
+          }
+        ],
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#Q9PRU8VJG"
       },
       {
         "name": "manue",
@@ -71,7 +108,8 @@
         "mapPosition": 4,
         "townHallLevel": 13,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#Q22QUGJPU"
       },
       {
         "name": "st3pny",
@@ -79,14 +117,32 @@
         "mapPosition": 5,
         "townHallLevel": 13,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#QR0QRVVVP"
       },
       {
         "name": "Giuseppe",
         "tag": "#GR290Y8CY",
         "mapPosition": 10,
         "townHallLevel": 11,
-        "attacks": [],
+        "attacks": [
+          {
+            "stars": 1,
+            "destruction": 73,
+            "order": 2,
+            "duration": 127,
+            "attackerTag": "#GR290Y8CY",
+            "defenderTag": "#QLQC8UJL0"
+          },
+          {
+            "stars": 2,
+            "destruction": 70,
+            "order": 3,
+            "duration": 100,
+            "attackerTag": "#GR290Y8CY",
+            "defenderTag": "#G0PRVP992"
+          }
+        ],
         "defenseCount": 0
       },
       {
@@ -95,7 +151,8 @@
         "mapPosition": 6,
         "townHallLevel": 12,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#QR0QRVVVP"
       },
       {
         "name": "emlaneu",
@@ -110,7 +167,24 @@
         "tag": "#GJL9PL990",
         "mapPosition": 12,
         "townHallLevel": 11,
-        "attacks": [],
+        "attacks": [
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 8,
+            "duration": 64,
+            "attackerTag": "#GJL9PL990",
+            "defenderTag": "#GR9QY0YJP"
+          },
+          {
+            "stars": 1,
+            "destruction": 86,
+            "order": 10,
+            "duration": 147,
+            "attackerTag": "#GJL9PL990",
+            "defenderTag": "#QCJLVQRYR"
+          }
+        ],
         "defenseCount": 0
       },
       {
@@ -119,7 +193,8 @@
         "mapPosition": 2,
         "townHallLevel": 14,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#CGC9R0PY"
       },
       {
         "name": "eunam",
@@ -134,8 +209,26 @@
         "tag": "#YVVYP80R2",
         "mapPosition": 8,
         "townHallLevel": 12,
-        "attacks": [],
-        "defenseCount": 0
+        "attacks": [
+          {
+            "stars": 1,
+            "destruction": 97,
+            "order": 4,
+            "duration": 108,
+            "attackerTag": "#YVVYP80R2",
+            "defenderTag": "#GYLLUL29U"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 5,
+            "duration": 79,
+            "attackerTag": "#YVVYP80R2",
+            "defenderTag": "#QLQC8UJL0"
+          }
+        ],
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#Q9PRU8VJG"
       }
     ]
   },
@@ -146,17 +239,35 @@
       "url": "https://api-assets.clashofclans.com/badges/512/I5u2_7KMY3iztHccoaO20y3rN_gahVZ1dbKYQHsxvCk.png"
     },
     "level": 11,
-    "stars": 0,
-    "attackCount": 0,
-    "destruction": 0,
+    "stars": 22,
+    "attackCount": 8,
+    "destruction": 51.666668,
     "members": [
       {
         "name": "jiayuan",
         "tag": "#CGC9R0PY",
         "mapPosition": 1,
         "townHallLevel": 15,
-        "attacks": [],
-        "defenseCount": 0
+        "attacks": [
+          {
+            "stars": 2,
+            "destruction": 99,
+            "order": 13,
+            "duration": 180,
+            "attackerTag": "#CGC9R0PY",
+            "defenderTag": "#9U82U028"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 14,
+            "duration": 151,
+            "attackerTag": "#CGC9R0PY",
+            "defenderTag": "#2V9QYGCQ0"
+          }
+        ],
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#9U82U028"
       },
       {
         "name": "les debas",
@@ -164,7 +275,8 @@
         "mapPosition": 10,
         "townHallLevel": 11,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 2,
+        "_bestOpponentAttackerTag": "#LV0Y8JY02"
       },
       {
         "name": "Catherine",
@@ -180,14 +292,32 @@
         "mapPosition": 14,
         "townHallLevel": 8,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#GJL9PL990"
       },
       {
         "name": "MINT",
         "tag": "#Q9PRU8VJG",
         "mapPosition": 4,
         "townHallLevel": 13,
-        "attacks": [],
+        "attacks": [
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 17,
+            "duration": 84,
+            "attackerTag": "#Q9PRU8VJG",
+            "defenderTag": "#LV0Y8JY02"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 18,
+            "duration": 106,
+            "attackerTag": "#Q9PRU8VJG",
+            "defenderTag": "#YVVYP80R2"
+          }
+        ],
         "defenseCount": 0
       },
       {
@@ -196,7 +326,8 @@
         "mapPosition": 9,
         "townHallLevel": 11,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 2,
+        "_bestOpponentAttackerTag": "#YVVYP80R2"
       },
       {
         "name": "KLAY",
@@ -227,8 +358,26 @@
         "tag": "#QR0QRVVVP",
         "mapPosition": 2,
         "townHallLevel": 14,
-        "attacks": [],
-        "defenseCount": 0
+        "attacks": [
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 11,
+            "duration": 123,
+            "attackerTag": "#QR0QRVVVP",
+            "defenderTag": "#8Y29P9G9L"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 12,
+            "duration": 120,
+            "attackerTag": "#QR0QRVVVP",
+            "defenderTag": "#Y9G2JLJ8V"
+          }
+        ],
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#9U82U028"
       },
       {
         "name": "Angela",
@@ -244,7 +393,8 @@
         "mapPosition": 7,
         "townHallLevel": 12,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 2,
+        "_bestOpponentAttackerTag": "#LV0Y8JY02"
       },
       {
         "name": "本間芽衣子",
@@ -252,14 +402,32 @@
         "mapPosition": 13,
         "townHallLevel": 10,
         "attacks": [],
-        "defenseCount": 0
+        "defenseCount": 1,
+        "_bestOpponentAttackerTag": "#GJL9PL990"
       },
       {
         "name": "kyann",
         "tag": "#Q22QUGJPU",
         "mapPosition": 3,
         "townHallLevel": 14,
-        "attacks": [],
+        "attacks": [
+          {
+            "stars": 2,
+            "destruction": 76,
+            "order": 15,
+            "duration": 180,
+            "attackerTag": "#Q22QUGJPU",
+            "defenderTag": "#PP0R2J280"
+          },
+          {
+            "stars": 3,
+            "destruction": 100,
+            "order": 16,
+            "duration": 126,
+            "attackerTag": "#Q22QUGJPU",
+            "defenderTag": "#GGP8P0JR"
+          }
+        ],
         "defenseCount": 0
       },
       {

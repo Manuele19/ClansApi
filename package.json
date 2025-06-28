@@ -8,7 +8,8 @@
   "packageManager": "yarn@4.9.1",
   "private": true,
   "scripts": {
-    "dev": "vite client"
+    "dev": "vite client",
+    "server": "npx tsx server/src/index.ts"
   },
   "workspaces": [
     "client",
@@ -16,16 +17,19 @@
   ],
   "dependencies": {
     "@hapi/hapi": "^21.4.0",
+    "@supabase/supabase-js": "^2.50.2",
     "@types/node": "^24.0.4",
     "axios": "^1.10.0",
     "clashofclans.js": "^3.3.22",
-    "vite": "6.3.5",
+    "d": "^1.0.2",
+    "tsx": "^4.20.3",
     "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "typescript": "^5.8.3",
+    "vite": "6.0.0",
     "vue-tsc": "^2.2.8"
   }
 }
