@@ -1,0 +1,659 @@
+
+  {
+    "state": "warEnded",
+    "teamSize": 15,
+    "attacksPerMember": 2,
+    "preparationStartTime": "2025-06-29T13:29:27.000Z",
+    "startTime": "2025-06-30T12:29:27.000Z",
+    "endTime": "2025-07-01T12:29:27.000Z",
+    "warTag": null,
+    "clan": {
+      "name": "DragoNero",
+      "tag": "#V0UYJCLY",
+      "badge": {
+        "url": "https://api-assets.clashofclans.com/badges/512/3yI8_XeuD5YLQkdBF07gYcd-qzltGpeuEZgm9UL38a4.png"
+      },
+      "level": 9,
+      "stars": 44,
+      "attackCount": 24,
+      "destruction": 99.4,
+      "members": [
+        {
+          "name": "Xardy",
+          "tag": "#9U82U028",
+          "mapPosition": 1,
+          "townHallLevel": 15,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 35,
+              "duration": 171,
+              "attackerTag": "#9U82U028",
+              "defenderTag": "#boh1"
+            },
+            {
+              "stars": 2,
+              "destruction": 91,
+              "order": 36,
+              "duration": 180,
+              "attackerTag": "#9U82U028",
+              "defenderTag": "#boh2"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh1"
+        },
+        {
+          "name": "eleunam",
+          "tag": "#2V9QYGCQ0",
+          "mapPosition": 2,
+          "townHallLevel": 14,
+          "attacks": [
+            {
+              "stars": 2,
+              "destruction": 80,
+              "order": 10,
+              "duration": 180,
+              "attackerTag": "#2V9QYGCQ0",
+              "defenderTag": "#boh2"
+            },
+            {
+              "stars": 2,
+              "destruction": 96,
+              "order": 19,
+              "duration": 178,
+              "attackerTag": "#2V9QYGCQ0",
+              "defenderTag": "#boh1"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh1"
+        },
+        {
+          "name": "set m",
+          "tag": "#U9PUQRLY",
+          "mapPosition": 3,
+          "townHallLevel": 14,
+          "attacks": [
+            {
+              "stars": 1,
+              "destruction": 56,
+              "order": 8,
+              "duration": 133,
+              "attackerTag": "#U9PUQRLY",
+              "defenderTag": "#boh1"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 9,
+              "duration": 122,
+              "attackerTag": "#U9PUQRLY",
+              "defenderTag": "#boh3"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh2"
+        },
+        {
+          "name": "Marco",
+          "tag": "#2V2OJG2LO",
+          "mapPosition": 4,
+          "townHallLevel": 12,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 31,
+              "duration": 130,
+              "attackerTag": "#2V2OJG2LO",
+              "defenderTag": "#boh5"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 33,
+              "duration": 133,
+              "attackerTag": "#2V2OJG2LO",
+              "defenderTag": "#boh4"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#Q98P9CQ9L"
+        },
+        {
+          "name": "luisokey123",
+          "tag": "#9VJ8PC098",
+          "mapPosition": 5,
+          "townHallLevel": 13,
+          "attacks": [
+            {
+              "stars": 2,
+              "destruction": 76,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#9VJ8PC098",
+              "defenderTag": "#boh5"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh5"
+        },
+        {
+          "name": "Stefano",
+          "tag": "#LV0Y8JY02",
+          "mapPosition": 6,
+          "townHallLevel": 12,
+          "attacks": [
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh"
+        },
+        {
+          "name": "il_sommo_set.m",
+          "tag": "#YVVYP80R2",
+          "mapPosition": 7,
+          "townHallLevel": 12,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#YVVYP80R2",
+              "defenderTag": "#boh8"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#YVVYP80R2",
+              "defenderTag": "#boh6"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh6"
+        },
+        {
+          "name": "deste",
+          "tag": "#L9GRLQYVR",
+          "mapPosition": 8,
+          "townHallLevel": 12,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#L9GRLQYVR",
+              "defenderTag": "#boh9"
+            },
+            {
+              "stars": 2,
+              "destruction": 96,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#L9GRLQYVR",
+              "defenderTag": "#boh7"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh6"
+        },
+        {
+          "name": "il distruttore",
+          "tag": "#28PURPP9G",
+          "mapPosition": 9,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#28PURPP9G",
+              "defenderTag": "#boh7"
+            },
+            {
+              "stars": 1,
+              "destruction": 21,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#28PURPP9G",
+              "defenderTag": "#boh2"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh8"
+        },
+        {
+          "name": "BigBabyBlackMan",
+          "tag": "#G9RUQJPLU",
+          "mapPosition": 10,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#G9RUQJPLU",
+              "defenderTag": "#boh10"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh8"
+        },
+        {
+          "name": "Ruggio",
+          "tag": "#2GOGRPUR8",
+          "mapPosition": 11,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 0,
+              "destruction": 0,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#2GOGRPUR8",
+              "defenderTag": "#boh2"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh9"
+        },
+        {
+          "name": "manue",
+          "tag": "#8GYU0JY2",
+          "mapPosition": 12,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 2,
+              "destruction": 85,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#8GYU0JY2",
+              "defenderTag": "#boh9"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#8GYU0JY2",
+              "defenderTag": "#boh11"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh9"
+        },
+        {
+          "name": "eunam",
+          "tag": "#YUC29L2LC",
+          "mapPosition": 13,
+          "townHallLevel": 10,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#YUC29L2LC",
+              "defenderTag": "#boh12"
+            },
+            {
+              "stars": 2,
+              "destruction": 99,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#YUC29L2LC",
+              "defenderTag": "#boh9"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh10"
+        },
+        {
+          "name": "emlaneu",
+          "tag": "#QRCU2QJCQ",
+          "mapPosition": 14,
+          "townHallLevel": 8,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#QRCU2QJCQ",
+              "defenderTag": "#boh13"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#QRCU2QJCQ",
+              "defenderTag": "#boh14"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh10"
+        },
+        {
+          "name": "nleemau",
+          "tag": "#Q9GVPU8V8",
+          "mapPosition": 15,
+          "townHallLevel": 8,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#Q9GVPU8V8",
+              "defenderTag": "#boh15"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#boh13"
+        }
+      ]
+    },
+    "opponent": {
+      "name": "HITTER PIRATES",
+      "tag": "#L8CPJVR9",
+      "badge": {
+        "url": "https://api-assets.clashofclans.com/badges/512/Hc2LHVFQeDs2P626dtalik8KdFi0sUw33wNkThLTpjg.png"
+      },
+      "level": 14,
+      "stars": 44,
+      "attackCount": 17,
+      "destruction": 99.73333,
+      "members": [
+        {
+          "name": "hitter falsai",
+          "tag": "#boh1",
+          "mapPosition": 1,
+          "townHallLevel": 16,
+          "attacks": [
+            {
+              "stars": 2,
+              "destruction": 96,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh1",
+              "defenderTag": "#9U82U028"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh1",
+              "defenderTag": "#2V9QYGCQ0"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#9U82U028"
+        },
+        {
+          "name": "sucona zaman",
+          "tag": "#boh2",
+          "mapPosition": 2,
+          "townHallLevel": 15,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh2",
+              "defenderTag": "#U9PUQRLY"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh2",
+              "defenderTag": "#2V2OJG2LO"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#9U82U028"
+        },
+        {
+          "name": "king",
+          "tag": "#boh3",
+          "mapPosition": 3,
+          "townHallLevel": 14,
+          "attacks": [
+            {
+              "stars": 2,
+              "destruction": 99,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh3",
+              "defenderTag": "#9VJ8PC098"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh3",
+              "defenderTag": "#LV0Y8JY02"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#U9PUQRLY"
+        },
+        {
+          "name": "aps",
+          "tag": "#boh4",
+          "mapPosition": 4,
+          "townHallLevel": 13,
+          "attacks": [
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#2V2OJG2LO"
+        },
+        {
+          "name": "faisl",
+          "tag": "#boh5",
+          "mapPosition": 5,
+          "townHallLevel": 12,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh5",
+              "defenderTag": "#LV0Y8JY02"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh5",
+              "defenderTag": "#9VJ8PC098"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#2V2OJG2LO"
+        },
+        {
+          "name": "archer queen",
+          "tag": "#boh6",
+          "mapPosition": 6,
+          "townHallLevel": 12,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh6",
+              "defenderTag": "#YVVYP80R2"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh6",
+              "defenderTag": "#L9GRLQYVR"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#YVVYP80R2"
+        },
+        {
+          "name": "si thu",
+          "tag": "#boh7",
+          "mapPosition": 7,
+          "townHallLevel": 12,
+          "attacks": [],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#28PURPP9G"
+        },
+        {
+          "name": "demon",
+          "tag": "#boh8",
+          "mapPosition": 8,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh8",
+              "defenderTag": "#28PURPP9G"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh8",
+              "defenderTag": "#G9RUQJPLU"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#YVVYP80R2"
+        },
+        {
+          "name": "pirates",
+          "tag": "#boh9",
+          "mapPosition": 9,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh9",
+              "defenderTag": "#8GYU0JY2"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh9",
+              "defenderTag": "#2GOGRPUR8"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#L9GRLQYVR"
+        },
+        {
+          "name": "zamans",
+          "tag": "#boh10",
+          "mapPosition": 10,
+          "townHallLevel": 11,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh10",
+              "defenderTag": "#YUC29L2LC"
+            },
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh10",
+              "defenderTag": "#QRCU2QJCQ"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#G9RUQJPLU"
+        },
+        {
+          "name": "taniaz",
+          "tag": "#boh11",
+          "mapPosition": 11,
+          "townHallLevel": 10,
+          "attacks": [],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#8GYU0JY2"
+        },
+        {
+          "name": "gumiho",
+          "tag": "#boh12",
+          "mapPosition": 12,
+          "townHallLevel": 10,
+          "attacks": [],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#YUC29L2LC"
+        },
+        {
+          "name": "minion prince",
+          "tag": "#boh13",
+          "mapPosition": 13,
+          "townHallLevel": 8,
+          "attacks": [
+            {
+              "stars": 3,
+              "destruction": 100,
+              "order": 1,
+              "duration": 1,
+              "attackerTag": "#boh13",
+              "defenderTag": "#Q9GVPU8V8"
+            }
+          ],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#QRCU2QJCQ"
+        },
+        {
+          "name": "rocky",
+          "tag": "#boh14",
+          "mapPosition": 14,
+          "townHallLevel": 8,
+          "attacks": [],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#QRCU2QJCQ"
+        },
+        {
+          "name": "zack la",
+          "tag": "#boh15",
+          "mapPosition": 15,
+          "townHallLevel": 6,
+          "attacks": [],
+          "defenseCount": 1,
+          "_bestOpponentAttackerTag": "#Q9GVPU8V8"
+        }
+      ]
+    }
+  }

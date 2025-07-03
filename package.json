@@ -10,19 +10,23 @@
   "scripts": {
     "dev": "vite client",
     "server": "npx tsx server/src/index.ts",
+    "test": "npx tsx test/src/index.ts",
     "build": "yarn workspace @clansapi/client build"
   },
   "workspaces": [
     "client",
-    "server"
+    "server",
+    "test"
   ],
   "dependencies": {
     "@hapi/hapi": "^21.4.0",
     "@supabase/supabase-js": "^2.50.2",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^24.0.4",
     "axios": "^1.10.0",
     "clashofclans.js": "^3.3.22",
     "d": "^1.0.2",
+    "lodash": "^4.17.21",
     "tsx": "^4.20.3",
     "vite-plugin-singlefile": "^2.2.0",
     "vue": "^3.5.13"

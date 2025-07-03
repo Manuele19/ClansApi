@@ -3,8 +3,9 @@
   <div id="app">
     <h1>Drago Nero</h1>
     <div class="container">
-      <div class="card" v-for="player, tag in players" :key="tag">
-        <h2>{{ player.name }} ({{ tag }}) Attacchi: {{ player.attacks.length }} su {{ player.totalAttacks }}</h2>
+      <div class="card" v-for="player, key in players" :key="key">
+        <h2>{{ player.name }} ({{ player.tag }}) Attacchi: {{ player.attacks.length }} su {{ player.totalAttacks }} = {{ player.attackRateo? (player.attackRateo * 100)+'%': '' }} </h2>
+        <h5> Distruzione media: {{ player.averageDestruction }}% , Contro stesso livello th: {{ player.averageDestructionAgainstSameTh }}%</h5>
         <br />
         <div v-for="attack in player.attacks">
           <strong>
@@ -27,6 +28,7 @@
 import { createClient } from '@supabase/supabase-js';
 import config from '../config.json';
 import { computed, onBeforeMount, ref } from 'vue';
+import _ from 'lodash'
 
 interface clan_wars {
     id: number
@@ -39,39 +41,85 @@ interface clan_wars {
 
 interface attack {
     stars: number
-    destruction: string
+    destruction: number
     defenderTag: string
-    enemyTownHallDifference: number
+    enemyTownHallDifference?: number
 }
 
 interface player {
+    tag: string
     name: string
-    totalAttacks:number
+    totalAttacks: number
     attacks: attack[]
+    totalDestruction: number
+    averageDestruction?: number
+    attackRateo?: number
+    totalAttacksAgainstSameTh: number
+    totalDestructionAgainstSameTh:  number
+    averageDestructionAgainstSameTh?: number
 }
 
 const supabase = createClient(config.supabaseUrl, config.supabaseKey)
 const clanWars = ref<clan_wars[]>([])
-const players = computed((): {[key: string]: player} =>{
+
+const players = computed((): player[] =>{
 
   const playerss: {[key: string]: player}  = {}
-
+  
   clanWars.value.forEach((war) => {
     const warData = JSON.parse(war.war_data)
+    
+    const enemies: {[key: string]: { th_level: number } }  = {}
+
+    warData.opponent.members.forEach((p: any) => {
+      enemies[p.tag]=({
+        th_level:p.townHallLevel
+      })
+    })
+
     warData.clan.members.forEach((p: any) => {
+      let thisWarDestruction = 0
+      let attacksAgainstSameTh = 0
+      let thisWarDestructionAgainstSameTh = 0
+      
+      const attacks: attack[] = _.map(p.attacks, (a: attack)=>{
+        a.enemyTownHallDifference = enemies[a.defenderTag].th_level - p.townHallLevel
+        thisWarDestruction += a.destruction
+        if(a.enemyTownHallDifference == 0){
+          thisWarDestructionAgainstSameTh += a.destruction
+          attacksAgainstSameTh++
+        }
+        return a
+      })
+
       if (playerss[p.tag]) {
-        playerss[p.tag].attacks.push(...p.attacks)
+        playerss[p.tag].attacks.push(...attacks)
         playerss[p.tag].totalAttacks += warData.attacksPerMember
+        playerss[p.tag].totalAttacksAgainstSameTh += attacksAgainstSameTh
+        playerss[p.tag].totalDestruction += thisWarDestruction
+        playerss[p.tag].totalDestructionAgainstSameTh += thisWarDestructionAgainstSameTh
       } else {
         playerss[p.tag]=({
+          tag: p.tag,
           totalAttacks: warData.attacksPerMember,
           name: p.name,
-          attacks: p.attacks
+          attacks: p.attacks,
+          totalAttacksAgainstSameTh: attacksAgainstSameTh,
+          totalDestruction: thisWarDestruction,
+          totalDestructionAgainstSameTh: thisWarDestructionAgainstSameTh
         })
       }
     })
   })
-  return playerss
+
+  return _.orderBy(_.mapValues(playerss, (player) => {
+      player.averageDestruction = player.totalDestruction / player.attacks.length | 0
+      player.averageDestructionAgainstSameTh = player.totalDestructionAgainstSameTh / player.totalAttacksAgainstSameTh | 0
+      player.attackRateo = player.attacks.length / player.totalAttacks
+      return player
+    }),
+    ['averageDestructionAgainstSameTh','averageDestruction','attackRateo'],['desc']
+  )
 })
 
 onBeforeMount(async () => {
@@ -123,7 +171,7 @@ body {
   width: 95%;
 }
 
-h2 {
+h2, h5 {
   margin-top: 0;
   text-align: left;
 }

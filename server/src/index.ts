@@ -18,7 +18,8 @@ const client = new Client({ keys: [config.apiKey]});
 const supabase = createClient(config.supabaseUrl, config.supabaseKey)
 
 const fetchData = async() =>{
-    const currentClanWar = await client.getClanWar('#VOUYJCLY');
+    // const currentClanWar = await client.getClanWar('#V0UYJCLY');
+    const currentClanWar = await client.getCurrentWar('#V0UYJCLY');
     console.log('fetched last war against ' + currentClanWar.opponent.name, currentClanWar.clan.attackCount);
 
     let { data: clan_wars, error } = await supabase
