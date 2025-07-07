@@ -2,21 +2,55 @@
 <template>
   <div id="app">
     <h1>Drago Nero</h1>
-    <div class="container">
-      <div class="card" v-for="player, key in players" :key="key">
-        <h2>{{ player.name }} ({{ player.tag }}) Attacchi: {{ player.attacks.length }} su {{ player.totalAttacks }} = {{ player.attackRateo? (player.attackRateo * 100)+'%': '' }} </h2>
-        <h5> Distruzione media: {{ player.averageDestruction }}% , Contro stesso livello th: {{ player.averageDestructionAgainstSameTh }}%</h5>
-        <br />
-        <div v-for="attack in player.attacks">
-          <strong>
-            <strong :class= "attack.stars >= 1 ? 'filled' : 'empty'">&#9733</strong>
-            <strong :class= "attack.stars >= 2 ? 'filled' : 'empty'">&#9733</strong>
-            <strong :class= "attack.stars >= 3 ? 'filled' : 'empty'">&#9733</strong> 
-          </strong>-
-          <!-- <strong>Stars:</strong> {{ attack.stars }} - -->
-          <strong>Destruction:</strong> {{ attack.destruction }}% -
-          <strong>Enemy Tag:</strong> {{ attack.defenderTag }} 
-          <!-- <strong>Town Hall Difference:</strong> {{ attack.enemyTownHallDifference }} -->
+    filtra solo gli attacchi contro avversari con il municipio di livello
+    <select id="filter" v-model="filterValue">
+      <option v-for="option in filterOptions" :key="option" :value="option">
+        {{ option }}
+      </option>
+    </select>
+    <div class="row">
+      <div class="container">
+        <h3>Attacchi non mancati</h3>
+        <div class="card" v-for="player, key in playerByAttacks" :key="key">
+          <h2>{{ player.name }} </h2>
+          <h3> Attacchi dimenticati: {{ player.forgottenAttacks }} </h3>
+          <h6> su {{ player.totalAttacks}} </h6>
+          <h6> Distruzione media: {{ player.averageDestruction }}%</h6>
+          <br />
+          <div v-for="attack in player.attacks">
+            <strong>
+              <strong :class= "attack.stars >= 1 ? 'filled' : 'empty'">&#9733</strong>
+              <strong :class= "attack.stars >= 2 ? 'filled' : 'empty'">&#9733</strong>
+              <strong :class= "attack.stars >= 3 ? 'filled' : 'empty'">&#9733</strong> 
+            </strong> -
+            <!-- <strong>Stars:</strong> {{ attack.stars }} - -->
+            {{ attack.destruction }}%
+            {{ getAttackDifferenceSymbol(attack.enemyTownHallDifference)}}
+            ({{ attack.defenderTag }})
+            <!-- <strong>Town Hall Difference:</strong> {{ attack.enemyTownHallDifference }} -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h3>Distruzione media</h3>
+        <div class="card" v-for="player, key in playerByDestruction" :key="key">
+          <h2>{{ player.name }}</h2>
+          <h3> Distruzione media: {{ player.averageDestruction }}%</h3>
+          <h6> Attacchi dimenticati: {{ player.forgottenAttacks }} su {{ player.totalAttacks}} </h6>
+          <br />
+          <div v-for="attack in player.attacks">
+            <strong>
+              <strong :class= "attack.stars >= 1 ? 'filled' : 'empty'">&#9733</strong>
+              <strong :class= "attack.stars >= 2 ? 'filled' : 'empty'">&#9733</strong>
+              <strong :class= "attack.stars >= 3 ? 'filled' : 'empty'">&#9733</strong> 
+            </strong> -
+            <!-- <strong>Stars:</strong> {{ attack.stars }} - -->
+            {{ attack.destruction }}%
+            {{ getAttackDifferenceSymbol(attack.enemyTownHallDifference)}}
+            ({{ attack.defenderTag }})
+            <!-- <strong>Town Hall Difference:</strong> {{ attack.enemyTownHallDifference }} -->
+          </div>
         </div>
       </div>
 
@@ -29,103 +63,127 @@ import { createClient } from '@supabase/supabase-js';
 import config from '../config.json';
 import { computed, onBeforeMount, ref } from 'vue';
 import _ from 'lodash'
+import { ClanWar, ClanWarAttack } from 'clashofclans.js';
 
 interface clan_wars {
     id: number
     enemy_tag: string
     enemy_name: string
-    war_data: string
+    war_data: ClanWar
     war_status: 'preparation' | 'inWar' | 'warEnded' | 'notInWar'
     end_time: string
 }
 
-interface attack {
-    stars: number
-    destruction: number
-    defenderTag: string
+interface attack extends ClanWarAttack {
     enemyTownHallDifference?: number
 }
 
 interface player {
     tag: string
     name: string
-    totalAttacks: number
+    totalAttacks?: number
+    forgottenAttacks: number
     attacks: attack[]
     totalDestruction: number
     averageDestruction?: number
     attackRateo?: number
-    totalAttacksAgainstSameTh: number
-    totalDestructionAgainstSameTh:  number
-    averageDestructionAgainstSameTh?: number
 }
 
+const filterValue = ref('tutti')
 const supabase = createClient(config.supabaseUrl, config.supabaseKey)
 const clanWars = ref<clan_wars[]>([])
 
-const players = computed((): player[] =>{
+const players = computed((): {[key:string]: player} =>{
 
   const playerss: {[key: string]: player}  = {}
   
   clanWars.value.forEach((war) => {
-    const warData = JSON.parse(war.war_data)
-    
+    const warData = war.war_data
     const enemies: {[key: string]: { th_level: number } }  = {}
 
-    warData.opponent.members.forEach((p: any) => {
-      enemies[p.tag]=({
-        th_level:p.townHallLevel
-      })
+    _.forEach(warData.opponent.members, (p) => {
+      enemies[p.tag] = { th_level: p.townHallLevel }
     })
 
-    warData.clan.members.forEach((p: any) => {
-      let thisWarDestruction = 0
-      let attacksAgainstSameTh = 0
-      let thisWarDestructionAgainstSameTh = 0
+    _.forEach(warData.clan.members, (p) => {
+      let attacks: attack[] = _.map(p.attacks, (a)=>{
+        _.set(a,'enemyTownHallDifference', enemies[a.defenderTag].th_level - p.townHallLevel)
+        return a as attack
+      })
       
-      const attacks: attack[] = _.map(p.attacks, (a: attack)=>{
-        a.enemyTownHallDifference = enemies[a.defenderTag].th_level - p.townHallLevel
+      if(filterValue.value !== 'tutti')
+        attacks = _.filter(attacks, (a:attack)=>{
+          if(a.enemyTownHallDifference == undefined)a.enemyTownHallDifference = 0
+          switch(filterValue.value){
+            case 'maggiore': 
+              return a.enemyTownHallDifference > 0
+            case 'maggiore o uguale':
+              return a.enemyTownHallDifference >= 0
+            case 'uguale':
+              return a.enemyTownHallDifference === 0
+            case 'minore o uguale':
+              return a.enemyTownHallDifference <= 0
+            case 'minore':
+              return a.enemyTownHallDifference < 0
+            default: return true
+          }
+        })
+      
+      let thisWarDestruction = 0
+
+      _.forEach(attacks, (a)=>{
         thisWarDestruction += a.destruction
-        if(a.enemyTownHallDifference == 0){
-          thisWarDestructionAgainstSameTh += a.destruction
-          attacksAgainstSameTh++
-        }
-        return a
       })
 
       if (playerss[p.tag]) {
         playerss[p.tag].attacks.push(...attacks)
-        playerss[p.tag].totalAttacks += warData.attacksPerMember
-        playerss[p.tag].totalAttacksAgainstSameTh += attacksAgainstSameTh
         playerss[p.tag].totalDestruction += thisWarDestruction
-        playerss[p.tag].totalDestructionAgainstSameTh += thisWarDestructionAgainstSameTh
+        playerss[p.tag].forgottenAttacks += warData.attacksPerMember - p.attacks.length
       } else {
         playerss[p.tag]=({
           tag: p.tag,
-          totalAttacks: warData.attacksPerMember,
           name: p.name,
-          attacks: p.attacks,
-          totalAttacksAgainstSameTh: attacksAgainstSameTh,
+          attacks: attacks,
           totalDestruction: thisWarDestruction,
-          totalDestructionAgainstSameTh: thisWarDestructionAgainstSameTh
+          forgottenAttacks: warData.attacksPerMember - p.attacks.length
         })
       }
     })
   })
 
-  return _.orderBy(_.mapValues(playerss, (player) => {
+  return _.mapValues(playerss, (player) => {
       player.averageDestruction = player.totalDestruction / player.attacks.length | 0
-      player.averageDestructionAgainstSameTh = player.totalDestructionAgainstSameTh / player.totalAttacksAgainstSameTh | 0
+      player.totalAttacks = player.attacks.length + player.forgottenAttacks
       player.attackRateo = player.attacks.length / player.totalAttacks
       return player
-    }),
-    ['averageDestructionAgainstSameTh','averageDestruction','attackRateo'],['desc']
+    })
+
+})
+
+const playerByAttacks = computed((): player[] => {
+  return _.orderBy(players.value,
+    ['forgottenAttacks','totalAttacks','averageDestruction'],['asc','desc','desc']
   )
 })
 
+const playerByDestruction = computed((): player[] => {
+  return _.orderBy(players.value,
+    ['averageDestruction','attackRateo'],['desc','desc']
+  )
+})
+
+function getAttackDifferenceSymbol(difference?: number) {
+  if(!difference || difference == 0) return '='
+  if(difference === 1) return '∧'
+  if(difference > 1) return difference+'∧'
+  if(difference === -1) return '∨'
+  if(difference < -1) return -difference+'∨'
+}
+
 onBeforeMount(async () => {
     const { data, error } = await supabase
-        .from('clan_wars')
-        .select('*')
+      .from('clan_wars')
+      .select('*')
 
     if (error) {
         console.error('Error fetching clan wars:', error)
@@ -134,6 +192,7 @@ onBeforeMount(async () => {
     }
 })
 
+const filterOptions = ['tutti', 'maggiore', 'maggiore o uguale', 'uguale', 'minore o uguale', 'minore']
 
 </script>
 <style>
@@ -157,7 +216,7 @@ body {
 
 .container {
   display: flex;
-  width:100%;
+  width:50%;
   height:100%;
   flex-direction: column;
   align-items: center;
@@ -168,10 +227,10 @@ body {
   border: 1px solid #eee;
   border-radius: 20px;
   margin-bottom: 20px;
-  width: 95%;
+  width: 80%
 }
 
-h2, h5 {
+h2, h3, h5, h6 {
   margin-top: 0;
   text-align: left;
 }
@@ -183,5 +242,12 @@ h2, h5 {
 .empty {
   color: #ffffff70;
   width: 10px;
+}
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 </style>

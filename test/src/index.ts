@@ -28,16 +28,24 @@ const supabase = createClient(config.supabaseUrl, config.supabaseKey)
 //     console.log(data)
 //     await fs.writeFile('cwlround.json', JSON.stringify(data, null, 2));
 // })
-client.getClanWar('#V0UYJCLY')
-.then((data)=>{
-    console.log('Clan')
-    console.log(JSON.stringify(data))
-})
+// client.getClanWar('#V0UYJCLY')
+// .then((data)=>{
+//     console.log('Clan')
+//     console.log(JSON.stringify(data))
+// })
 
-client.getCurrentWar('#V0UYJCLY')
+// client.getCurrentWar({clanTag: '#V0UYJCLY', round: 'CurrentRound'})
+// .then((data)=>{
+//     console.log('Current')
+//     console.log(data)
+// })
+
+// client.getClanWarLeagueGroup('#V0UYJCLY')
+// client.getCurrentWar({clanTag: '#V0UYJCLY', round:'PreviousRound'})
+client.getClanWarLeagueRound({clanTag: '#V0UYJCLY', warTag: '#8PJ8U80CC'})
 .then((data)=>{
     console.log('Current')
-    console.log(JSON.stringify(data))
+    console.log(data)
 })
 
 
@@ -47,3 +55,11 @@ client.getCurrentWar('#V0UYJCLY')
 // })
 
 // server.start()
+
+
+
+    // warTags: [ '#8PRU8C0YQ' ],
+    // warTags: [ '#8PJ02VRY9' ],
+    // warTags: [ '#8PJ8U80CC' ],
+    // warTags: [ '#8PJYLRYRC', '#8PJYLRGPY', '#8PJYLRQ02', '#8PJYLRRGR' ],
+    // warTags: [ '#8PJG89PPY', '#8PJG89902', '#8PJG89YGR', '#8PJG89LUV' ],

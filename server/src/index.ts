@@ -1,7 +1,7 @@
 // import hapi from '@hapi/hapi';
 // import fs from 'fs/promises';
 
-import { Client } from 'clashofclans.js';
+import { ClanWar, Client } from 'clashofclans.js';
 import config from '../config.json';
 import { createClient } from '@supabase/supabase-js';
 
@@ -9,7 +9,7 @@ interface  clan_wars {
     id: number
     enemy_tag: string
     enemy_name: string
-    war_data: string
+    war_data: ClanWar
     war_status: 'preparation' | 'inWar' | 'warEnded' | 'notInWar'
     end_time: string
 }
@@ -19,7 +19,8 @@ const supabase = createClient(config.supabaseUrl, config.supabaseKey)
 
 const fetchData = async() =>{
     // const currentClanWar = await client.getClanWar('#V0UYJCLY');
-    const currentClanWar = await client.getCurrentWar('#V0UYJCLY');
+    const currentClanWar = await client.getCurrentWar({clanTag: '#V0UYJCLY', round:'CurrentRound'});
+    // const currentClanWar = await client.getClanWarLeagueRound({clanTag: '#V0UYJCLY', warTag: '#8PJ8U80CC'})
     console.log('fetched last war against ' + currentClanWar.opponent.name, currentClanWar.clan.attackCount);
 
     let { data: clan_wars, error } = await supabase
@@ -40,7 +41,7 @@ const fetchData = async() =>{
             return
         }
         const war: Partial<clan_wars> = {
-            war_data: JSON.stringify(currentClanWar),
+            war_data: currentClanWar,
             war_status: currentClanWar.state,
         }
         const { error } = await supabase
@@ -58,7 +59,7 @@ const fetchData = async() =>{
         const war: Partial<clan_wars> = {
             enemy_tag: currentClanWar.opponent.tag,
             enemy_name: currentClanWar.opponent.name,
-            war_data: JSON.stringify(currentClanWar),
+            war_data: currentClanWar,
             war_status: currentClanWar.state,
             end_time: new Date(currentClanWar.endTime).toDateString()
         }
