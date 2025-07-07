@@ -254,5 +254,6 @@ h2, h3, h5, h6 {
   height: 100%;
   flex-direction: row;
   justify-content: center;
+  min-width: 700px;
 }
 </style>
