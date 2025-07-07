@@ -63,19 +63,24 @@ import { createClient } from '@supabase/supabase-js';
 import config from '../config.json';
 import { computed, onBeforeMount, ref } from 'vue';
 import _ from 'lodash'
-import { ClanWar, ClanWarAttack } from 'clashofclans.js';
 
 interface clan_wars {
     id: number
     enemy_tag: string
     enemy_name: string
-    war_data: ClanWar
+    war_data: any
     war_status: 'preparation' | 'inWar' | 'warEnded' | 'notInWar'
     end_time: string
 }
 
-interface attack extends ClanWarAttack {
-    enemyTownHallDifference?: number
+interface attack {
+  stars: number
+  destruction: number
+  order: number
+  duration: number
+  attackerTag: string
+  defenderTag: string
+  enemyTownHallDifference?: number
 }
 
 interface player {
